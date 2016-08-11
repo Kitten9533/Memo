@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/app.css" rel="stylesheet" />
+		<style>
+			.myfooter a{
+				font-size: 28px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-btn mui-btn-link mui-pull-left"><span class="mui-icon mui-icon-back"></span>BACK</a>
+			<a class="mui-btn mui-btn-link mui-pull-right" id="save">完成</a>
+			<h1 class="mui-title"></h1>
+		</header>
+		<div class="mui-content">
+			<!--<div class="mui-card">
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">产品</a>
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">iOS</a>
+							</li>
+							<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">Android</a>
+							</li>
+							<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">HTML5</a>
+							</li>
+						</ul>
+					</li>
+					<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">方案</a>
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">PC方案</a>
+							</li>
+							<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">手机方案</a>
+							</li>
+							<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">TV方案</a>
+							</li>
+						</ul>
+					</li>
+					<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">新闻</a>
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">公司新闻</a>
+							</li>
+							<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">行业新闻</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>-->
+			<div class="mui-card" style="margin:0;">
+				<div class="mui-input-row" style="text-align:center;">
+					<p id="time" class="mui-input-row" style="margin-top:10px;">2016年8月1日 00:00</p>
+				</div>
+				<!--<div class="mui-input-row" style="margin: 10px 5px;">-->
+				<div class="mui-card-content" style="margin:0px;">
+					<textarea id="textarea" rows="1" placeholder="detail.html" style="border:none;"></textarea>
+				</div>
+				<div class="myfooter" style="height: 54px;text-align: center;">
+					<a class="mui-btn mui-btn-link mui-pull-left" href="#delete"><span class="mui-icon mui-icon-trash"></span></a>
+					<a class="mui-btn mui-btn-link"><span class="mui-icon mui-icon-upload"></span></a>
+					<!--保存并新建-->
+					<a class="mui-btn mui-btn-link mui-pull-right" id="saveAndnew"><span class="mui-icon mui-icon-compose"></span></a>
+				</div>
+			</div>
+		</div>
+		
+		<div id="delete" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#" style="color: #FF3B30;" id="deleteMemo">删除备忘录</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#delete"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/config.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			var time;
+			var self;
+			var key;
+			//var timeForSave;
+			mui.plusReady(function(){
+				self = plus.webview.currentWebview();
+				var content_height = plus.screen.resolutionHeight - document.getElementsByTagName("header")[0].offsetHeight - 41 - 41 - 54;
+				//console.log(content_height); 
+				document.getElementById("textarea").style.height = content_height + "px";
+				//time = new Date();
+				time = (new Date((self.key).replace(/\-/g,'/'))).format("yyyy年MM月dd日 HH:mm");			
+				document.getElementById("time").innerHTML = time;
+				//document.getElementById("time").innerHTML = time.format("yyyy年MM月dd日 HH:mm");
+				document.getElementById("textarea").offsetHeight="0px";
+				getData();
+			});
+			
+			document.getElementById("save").addEventListener("tap",function(){
+				save();
+				mui.back();
+			});
+			
+			document.getElementById("textarea").addEventListener("tap",function(){
+
+			});
+			
+			document.getElementById("deleteMemo").addEventListener("tap",function(){
+				mui.toast("delete memo");
+				localStorage.removeItem(self.key);
+				mui.fire(self.opener(),"loadMemo",{});
+				mui.back();
+			});
+			
+			document.getElementById("saveAndnew").addEventListener("tap",function(){
+				mui.toast("save and new");
+			});
+			
+			function save(){   // detial save  =   update
+				var opener = self.opener();
+				//mui.toast("save");
+				localStorage.removeItem(self.key);
+				var memo_text = document.getElementById("textarea").value;
+				var time_text = (new Date()).format("yyyy-MM-dd HH:mm:ss")
+				localStorage.setItem(time_text,memo_text);
+				mui.fire(opener,"loadMemo",{});
+			}
+			
+			function getData(){
+				time = self.key;
+				var memo = localStorage.getItem(time);
+				$("#textarea").val(memo);
+			}
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet"/>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+		
+			// 扩展API加载完毕后调用onPlusReady回调函数  
+			document.addEventListener( "plusready", onPlusReady, false );  
+			// 扩展API加载完毕，现在可以正常调用扩展API  
+			function onPlusReady() {  
+				watchID=plus.orientation.watchOrientation( function ( o ) {  
+					//mui.toast( "Orientation\nAlpha:" + o.alpha + "\nBeta:" + o.beta + "\nGamma:" + o.gamma );  
+					document.getElementById("h").innerHTML = "y:" + Math.round(o.gamma);
+					document.getElementById("v").innerHTML = "x:" + Math.round(o.beta);
+					document.getElementById("z").innerHTML = "z:" + Math.round(o.alpha);
+					document.getElementById("m").innerHTML = "m:" + o.magneticHeading;
+					document.getElementById('process').innerHTML = Math.round(o.magneticHeading/360*100) + "%";
+					drawProcess();
+				}, function ( e ) {  
+					mui.toast( "Orientation error: " + e.message );  
+				} ,{
+					frequency:100
+				});
+				
+				document.getElementById("stop").addEventListener("tap",function(){
+					plus.orientation.clearWatch(watchID);
+				},false);
+			}
+			
+			function drawProcess(){  
+		    // 选出页面上所有class为process的canvas元素,然后迭代每一个元素画图(这里用Jquery的选择器选的)  
+		    //$('canvas.process').each(function() {  
+		    mui('canvas.process').each(function(){
+		        //var text = commonutil.stringTrim($(this).text());  
+		        var text=document.getElementById('process').innerHTML.trim();
+		        var process = text.substring(0, text.length-1);  
+		                  
+		            // 一个canvas标签  
+		        var canvas = this;  
+		            // 拿到绘图上下文,目前只支持"2d"  
+		        var context = canvas.getContext('2d');  
+		    	// 将绘图区域清空,如果是第一次在这个画布上画图,画布上没有东西,这步就不需要了  
+		        context.clearRect(0, 0, 100, 100);  
+		          
+		    	// ***开始画一个灰色的圆  
+		        context.beginPath();  
+		            // 坐标移动到圆心  
+		        context.moveTo(50, 50);  
+		            // 画圆,圆心是24,24,半径24,从角度0开始,画到2PI结束,最后一个参数是方向顺时针还是逆时针  
+		        context.arc(50, 50, 50, 0, Math.PI * 2, false);  
+		        context.closePath();  
+		            // 填充颜色  
+		        context.fillStyle = '#ddd';
+		        context.fill();  
+		            // ***灰色的圆画完  
+		          
+		        // 画进度  
+		        context.beginPath();  
+		            // 画扇形的时候这步很重要,画笔不在圆心画出来的不是扇形  
+		        context.moveTo(50, 50);  
+		            // 跟上面的圆唯一的区别在这里,不画满圆,画个扇形  
+		        context.arc(50, 50, 50, 0, Math.PI * 2 * process / 100, false);  
+		        context.closePath();  
+		        context.fillStyle = '#e74c3c';  
+		        context.fill();  
+		  
+		        // 画内部空白  
+		        context.beginPath();  
+		        context.moveTo(50, 50);  
+		        context.arc(50, 50, 47, 0, Math.PI * 2, true);  
+		        context.closePath();  
+		        context.fillStyle = 'rgba(255,255,255,1)';  
+		        context.fill();  
+		          
+		    // 画一条线  
+		        context.beginPath();  
+		        context.arc(50, 50, 44.5, 0, Math.PI * 2, true);  
+		        context.closePath();  
+		            // 与画实心圆的区别,fill是填充,stroke是画线  
+		        context.strokeStyle = '#ddd';  
+		        context.stroke();  
+		          
+		            //在中间写字  
+		        context.font = "bold 9pt Arial";  
+		        context.fillStyle = '#e74c3c';  
+		        context.textAlign = 'center';  
+		        context.textBaseline = 'middle';  
+		        context.moveTo(50, 50);  
+		        context.fillText(text, 50, 50);  
+		    });
+		    }
+			
+		</script>
+	</head>
+	<style>
+	</style>
+	<body>
+		<button id="stop" type="button" class="mui-btn" >stop</button>
+		<button type="button" class="mui-icon-back" onclick="mui.back();"></button>
+		<p><span id="h">h:</span> <span id="v">v:</span> <span id="z">z:</span> <span id="m">m:</span></p>
+		<canvas id='process' class="process" width="120px" height="120px">61%</canvas>  
+	</body>
+
+</html>
