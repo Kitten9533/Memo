@@ -1,0 +1,291 @@
+{"b":{"b":0},"t":"用户信息","form":"AppForm_Exist","id":"05e3362c-860e-411c-a1dc-32330b61b632","e":"systemuser","url":"system/form.html"}
+{"b":{"b":0},"t":"用户信息","form":"AppForm_Exist","id":"4d381556-0f52-4306-9d56-0a3dadd6c598","e":"systemuser","url":"system/form.html"}
+
+NewOpenWindow(this.id)
+
+#CE3D3A
+
+
+<ul id="MainList" class="mui-table-view mui-table-view-chevron">
+
+<li class="mui-table-view-cell" id="c_tlm_userimg" tl-for="tlm_userimg" tl-type="nvarchar">
+<!--**********begin_tlm_userimg**********-->
+<div class="mui-input-row" tl-for="tlm_userimg" tl-type="nvarchar">
+<label tl-for="tlm_userimg" tl-type="nvarchar" class="mui-text-center" title="头像">头像</label>
+<input type="text" class="mui-input-clear mui-input" name="tlm_userimg" tl-for="tlm_userimg" tl-type="nvarchar" placeholder="请输入头像">
+</div>
+<!--**********end_tlm_userimg**********-->
+</li>
+
+<li class="mui-table-view-cell" id="c_username" tl-for="username" tl-type="nvarchar">
+<!--**********begin_username**********-->
+<div class="mui-input-row" tl-for="username" tl-type="nvarchar">
+<label tl-for="username" tl-type="nvarchar" class="mui-text-center" title="登陆名">登陆名</label>
+<input type="text" class="mui-input-clear mui-input" name="username" tl-for="username" tl-type="nvarchar" placeholder="请输入登陆名" tl-disable="true">
+</div>
+<!--**********end_username**********-->
+</li>
+
+
+<p class='mui-input-row'><span class='mui-pull-left' id='c_tlm_oprationtime'><span class='mui-icon iconfont icon-qiandao color-228B22' style='font-size:18px;'></span>&nbsp;时间:{tlm_oprationtime}</span></p><p class='mui-input-row'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打卡人:{owninguser}</span></p><p class='mui-input-row'><span class='mui-pull-left' id='c_tlm_address' style='padding-left:22px;'>地点:{tlm_address}</span></p>
+<li class="mui-table-view-cell" id="c_mobile" tl-for="mobile" tl-type="nvarchar">
+<!--**********begin_mobile**********-->
+<div class="mui-input-row" tl-for="mobile" tl-type="nvarchar">
+<label tl-for="mobile" tl-type="nvarchar" class="mui-text-center" title="手机">手机</label>
+<input type="text" class="mui-input-clear mui-input" name="mobile" tl-for="mobile" tl-type="nvarchar" placeholder="请输入手机">
+</div>
+<!--**********end_mobile**********-->
+</li>
+<li class="mui-table-view-cell" id="c_tlm_qq" tl-for="tlm_qq" tl-type="nvarchar">
+<!--**********begin_tlm_qq**********-->
+<div class="mui-input-row" tl-for="tlm_qq" tl-type="nvarchar">
+<label tl-for="tlm_qq" tl-type="nvarchar" class="mui-text-center" title="qq">qq</label>
+<input type="text" class="mui-input-clear mui-input" name="tlm_qq" tl-for="tlm_qq" tl-type="nvarchar" placeholder="请输入qq">
+</div>
+<!--**********end_tlm_qq**********-->
+</li>
+<li class="mui-table-view-cell" id="c_officetel" tl-for="officetel" tl-type="nvarchar">
+<!--**********begin_officetel**********-->
+<div class="mui-input-row" tl-for="officetel" tl-type="nvarchar">
+<label tl-for="officetel" tl-type="nvarchar" class="mui-text-center" title="办公电话">办公电话</label>
+<input type="text" class="mui-input-clear mui-input" name="officetel" tl-for="officetel" tl-type="nvarchar" placeholder="请输入办公电话">
+</div>
+<!--**********end_officetel**********-->
+</li>
+<li class="mui-table-view-cell" id="c_tlm_email" tl-for="tlm_email" tl-type="nvarchar">
+<!--**********begin_tlm_email**********-->
+<div class="mui-input-row" tl-for="tlm_email" tl-type="nvarchar">
+<label tl-for="tlm_email" tl-type="nvarchar" class="mui-text-center" title="邮件">邮件</label>
+<input type="text" class="mui-input-clear mui-input" name="tlm_email" tl-for="tlm_email" tl-type="nvarchar" placeholder="请输入邮件">
+</div>
+<!--**********end_tlm_email**********-->
+</li>
+<li class="mui-table-view-cell" id="c_tlm_empno" tl-for="tlm_empno" tl-type="nvarchar">
+<!--**********begin_tlm_empno**********-->
+<div class="mui-input-row" tl-for="tlm_empno" tl-type="nvarchar">
+<label tl-for="tlm_empno" tl-type="nvarchar" class="mui-text-center" title="工号">工号</label>
+<input type="text" class="mui-input-clear mui-input" name="tlm_empno" tl-for="tlm_empno" tl-type="nvarchar" placeholder="请输入工号" tl-disable="true">
+</div>
+<!--**********end_tlm_empno**********-->
+</li>
+</ul>
+<ul class="mui-table-view" style="margin-top:25px;text-align:center;">
+<li class="mui-table-view-cell mui-table-view-cellExt">
+<a class="mui-navigate-right" onclick='	javascript:TLM.OpenWindow([{"url":"/system/view.html","id":"dkjl","b":{"c":0},"e":"tlm_systemcheckin"}]);'>
+<span class="mui-icon  iconfont icon-qiandao" style="font-size:18px;"></span> 打卡记录
+</a>
+<li class="mui-table-view-cell mui-table-view-cellExt">
+<a class="mui-navigate-right" id="/settings/modifypassword.html" onclick="NewOpenWindow(this.id);">
+<span class="mui-icon  iconfont icon-lock" style="font-size:18px;"></span> 修改密码
+</a>
+</li>
+</ul>
+<ul class="mui-table-view" style="margin-top:25px;margin-bottom:25px;text-align:center;">
+<li class="mui-table-view-cell mui-table-view-cellExt">
+<a id="exit" style="text-align: center;color: #FF3B30;">
+退出
+</a>
+</li>
+</ul>
+
+
+
+[LOG] : {"entityname":"tlm_area","pagesize":20,"viewname":"AppDefaultView"}
+[LOG] : {"entityname":"tlm_systemcheckin","pagesize":20,"viewname":"AppDefaultView"}
+
+
+
+
+
+<ul class="mui-table-view mui-table-view-chevron" style="margin:10px 0px 15px 0px;">				
+	<li class="mui-table-view-cell mui-media mui-table-view-cellExt">
+		<a class="mui-navigate-right" id="avatar">
+			<img id="userimg" class="mui-media-object mui-pull-left" src="images/cbd.jpg">
+			<div class="mui-media-body">
+				<label id="TLM_name"></label>
+				<p class="mui-ellipsis" id="TLM_gh"></p>
+			</div>
+		</a>
+	</li>
+</ul>
+
+<ul id="MainList" class="mui-table-view mui-table-view-chevron">
+
+<li class="mui-table-view-cell" id="c_tlm_userimg" tl-for="tlm_userimg" tl-type="nvarchar">
+<!--**********begin_tlm_userimg**********-->
+<div class="mui-input-row" tl-for="tlm_userimg" tl-type="nvarchar">
+<label tl-for="tlm_userimg" tl-type="nvarchar" class="mui-text-center" title="头像">头像</label>
+<input type="text" class="mui-input-clear mui-input" name="tlm_userimg" tl-for="tlm_userimg" tl-type="nvarchar" placeholder="请输入头像">
+</div>
+<!--**********end_tlm_userimg**********-->
+</li>
+
+<li class="mui-table-view-cell" id="c_name" tl-for="name" tl-type="nvarchar">
+<!--**********begin_name**********-->
+<div class="mui-input-row" tl-for="name" tl-type="nvarchar">
+<label tl-for="name" tl-type="nvarchar" class="mui-text-center" title="姓名">姓名</label>
+<input type="text" class="mui-input-clear mui-input" name="name" tl-for="name" tl-type="nvarchar" placeholder="请输入姓名" tl-disable="true">
+</div>
+<!--**********end_name**********-->
+</li>
+<li class="mui-table-view-cell" id="c_mobile" tl-for="mobile" tl-type="nvarchar">
+<!--**********begin_mobile**********-->
+<div class="mui-input-row" tl-for="mobile" tl-type="nvarchar">
+<label tl-for="mobile" tl-type="nvarchar" class="mui-text-center" title="手机">手机</label>
+<input type="text" class="mui-input-clear mui-input" name="mobile" tl-for="mobile" tl-type="nvarchar" placeholder="请输入手机">
+</div>
+<!--**********end_mobile**********-->
+</li>
+<li class="mui-table-view-cell" id="c_tlm_qq" tl-for="tlm_qq" tl-type="nvarchar">
+<!--**********begin_tlm_qq**********-->
+<div class="mui-input-row" tl-for="tlm_qq" tl-type="nvarchar">
+<label tl-for="tlm_qq" tl-type="nvarchar" class="mui-text-center" title="qq">qq</label>
+<input type="text" class="mui-input-clear mui-input" name="tlm_qq" tl-for="tlm_qq" tl-type="nvarchar" placeholder="请输入qq">
+</div>
+<!--**********end_tlm_qq**********-->
+</li>
+<li class="mui-table-view-cell" id="c_officetel" tl-for="officetel" tl-type="nvarchar">
+<!--**********begin_officetel**********-->
+<div class="mui-input-row" tl-for="officetel" tl-type="nvarchar">
+<label tl-for="officetel" tl-type="nvarchar" class="mui-text-center" title="办公电话">办公电话</label>
+<input type="text" class="mui-input-clear mui-input" name="officetel" tl-for="officetel" tl-type="nvarchar" placeholder="请输入办公电话">
+</div>
+<!--**********end_officetel**********-->
+</li>
+<li class="mui-table-view-cell" id="c_tlm_email" tl-for="tlm_email" tl-type="nvarchar">
+<!--**********begin_tlm_email**********-->
+<div class="mui-input-row" tl-for="tlm_email" tl-type="nvarchar">
+<label tl-for="tlm_email" tl-type="nvarchar" class="mui-text-center" title="邮件">邮件</label>
+<input type="text" class="mui-input-clear mui-input" name="tlm_email" tl-for="tlm_email" tl-type="nvarchar" placeholder="请输入邮件">
+</div>
+<!--**********end_tlm_email**********-->
+</li>
+<li class="mui-table-view-cell" id="c_tlm_empno" tl-for="tlm_empno" tl-type="nvarchar">
+<!--**********begin_tlm_empno**********-->
+<div class="mui-input-row" tl-for="tlm_empno" tl-type="nvarchar">
+<label tl-for="tlm_empno" tl-type="nvarchar" class="mui-text-center" title="工号">工号</label>
+<input type="text" class="mui-input-clear mui-input" name="tlm_empno" tl-for="tlm_empno" tl-type="nvarchar" placeholder="请输入工号" tl-disable="true">
+</div>
+<!--**********end_tlm_empno**********-->
+</li>
+</ul>
+<ul class="mui-table-view" style="margin-top:15px;text-align:center;">
+<li class="mui-table-view-cell mui-table-view-cellExt">
+<a class="mui-navigate-right" onclick="	javascript:TLM.OpenWindow([{&quot;url&quot;:&quot;/system/view.html&quot;,&quot;id&quot;:&quot;dkjl&quot;,&quot;v&quot;:&quot;TLM_AppDefaultView&quot;,&quot;b&quot;:{&quot;c&quot;:0},&quot;e&quot;:&quot;tlm_systemcheckin&quot;}]);">
+<span class="mui-icon  iconfont icon-qiandao" style="font-size:18px;"></span> 打卡记录
+</a>
+</li><li class="mui-table-view-cell mui-table-view-cellExt">
+<a class="mui-navigate-right" id="/settings/modifypassword.html" onclick="NewOpenWindow(this.id);">
+<span class="mui-icon  iconfont icon-lock" style="font-size:18px;"></span> 修改密码
+</a>
+</li>
+</ul>
+<ul class="mui-table-view" style="margin-top:15px;margin-bottom:25px;text-align:center;">
+<li class="mui-table-view-cell mui-table-view-cellExt">
+<a id="exit" style="text-align: center;color: #FF3B30;">
+退出
+</a>
+</li>
+</ul>
+
+
+
+/uploadfiles/userimg/000000.png
+
+
+
+<ul class="mui-table-view mui-table-view-chevron" style="margin:10px 0px 15px 0px;">				
+<li class="mui-table-view-cell mui-media mui-table-view-cellExt">
+<a class="mui-navigate-right" id="avatar" style="margin-left:0px;margin-right:0px;">
+<img id="userimg" class="mui-media-object mui-pull-left" src="images/cbd.jpg">
+<div class="mui-media-body">
+<label id="TLM_name"></label>
+<p class="mui-ellipsis" id="TLM_gh"></p>
+</div>
+</a>
+</li>
+</ul>
+
+<ul id="MainList" class="mui-table-view mui-table-view-chevron">
+<li class="mui-table-view-cell mui-table-view-cellExt" style="text-align:left;">
+<span class="mui-icon iconfont icon-profile" style="font-size:16px;"></span> 个人资料
+</li>
+<li class="mui-table-view-cell" id="c_name" tl-for="name" tl-type="nvarchar" style="display:none;">
+<!--**********begin_name**********-->
+<div class="mui-input-row" tl-for="name" tl-type="nvarchar">
+<label tl-for="name" tl-type="nvarchar" class="mui-text-center" title="姓名">姓名</label>
+<input type="text" class="mui-input-clear mui-input" name="name" tl-for="name" tl-type="nvarchar" placeholder="请输入姓名">
+</div>
+<!--**********end_name**********-->
+</li>
+<li class="mui-table-view-cell" id="c_username" tl-for="username" tl-type="nvarchar" style="display:none;">
+<!--**********begin_username**********-->
+<div class="mui-input-row" tl-for="username" tl-type="nvarchar">
+<label tl-for="username" tl-type="nvarchar" class="mui-text-center" title="登陆名">登陆名</label>
+<input type="text" class="mui-input-clear mui-input" name="username" tl-for="username" tl-type="nvarchar" placeholder="请输入登陆名">
+</div>
+<!--**********end_username**********-->
+</li>
+
+
+
+<ul class="mui-table-view mui-table-view-chevron" style="margin:10px 0px 15px 0px;">	
+<li class="mui-table-view-cell" id="c_mobile" tl-for="mobile" tl-type="nvarchar">
+<!--**********begin_mobile**********-->
+<div class="mui-input-row" tl-for="mobile" tl-type="nvarchar">
+<label tl-for="mobile" tl-type="nvarchar" title="手机号码">手机号码</label>
+<input type="text" class="mui-input-clear mui-input" name="mobile" tl-for="mobile" tl-type="nvarchar" placeholder="请输入手机号码">
+</div>
+<!--**********end_mobile**********-->
+</li>
+<li class="mui-table-view-cell" id="c_tlm_qq" tl-for="tlm_qq" tl-type="nvarchar">
+<!--**********begin_tlm_qq**********-->
+<div class="mui-input-row" tl-for="tlm_qq" tl-type="nvarchar">
+<label tl-for="tlm_qq" tl-type="nvarchar" title="qq号码">QQ号码</label>
+<input type="text" class="mui-input-clear mui-input" name="tlm_qq" tl-for="tlm_qq" tl-type="nvarchar" placeholder="请输入QQ号码">
+</div>
+<!--**********end_tlm_qq**********-->
+</li>
+<li class="mui-table-view-cell" id="c_officetel" tl-for="officetel" tl-type="nvarchar">
+<!--**********begin_officetel**********-->
+<div class="mui-input-row" tl-for="officetel" tl-type="nvarchar">
+<label tl-for="officetel" tl-type="nvarchar" title="固定电话">固定电话</label>
+<input type="text" class="mui-input-clear mui-input" name="officetel" tl-for="officetel" tl-type="nvarchar" placeholder="请输入固定电话">
+</div>
+<!--**********end_officetel**********-->
+</li>
+<li class="mui-table-view-cell" id="c_tlm_email" tl-for="tlm_email" tl-type="nvarchar">
+<!--**********begin_tlm_email**********-->
+<div class="mui-input-row" tl-for="tlm_email" tl-type="nvarchar">
+<label tl-for="tlm_email" tl-type="nvarchar" title="邮箱">邮箱</label>
+<input type="text" class="mui-input-clear mui-input" name="tlm_email" tl-for="tlm_email" tl-type="nvarchar" placeholder="请输入邮箱">
+</div>
+<!--**********end_tlm_email**********-->
+</li>
+<li class="mui-table-view-cell" id="c_tlm_empno" tl-for="tlm_empno" tl-type="nvarchar">
+<!--**********begin_tlm_empno**********-->
+<div class="mui-input-row" tl-for="tlm_empno" tl-type="nvarchar">
+<label tl-for="tlm_empno" tl-type="nvarchar" title="工号">工号</label>
+<input type="text" class="mui-input-clear mui-input" name="tlm_empno" tl-for="tlm_empno" tl-type="nvarchar" placeholder="请输入工号" tl-disable="true">
+</div>
+<!--**********end_tlm_empno**********-->
+</li>
+</ul>
+<ul class="mui-table-view" style="margin-top:15px;text-align:left;">
+<li class="mui-table-view-cell mui-table-view-cellExt">
+<a class="mui-navigate-right" onclick="	javascript:TLM.OpenWindow([{&quot;url&quot;:&quot;/system/view.html&quot;,&quot;id&quot;:&quot;dkjl&quot;,&quot;v&quot;:&quot;TLM_AppDefaultView&quot;,&quot;b&quot;:{&quot;c&quot;:0},&quot;e&quot;:&quot;tlm_systemcheckin&quot;}]);">
+<span class="mui-icon  iconfont icon-qiandao" style="font-size:16px;"></span> 打卡记录
+</a>
+</li><li class="mui-table-view-cell mui-table-view-cellExt">
+<a class="mui-navigate-right" id="/settings/modifypassword.html" onclick="NewOpenWindow(this.id);">
+<span class="mui-icon  iconfont icon-lock" style="font-size:16px;"></span> 修改密码
+</a>
+</li>
+</ul>
+<ul class="mui-table-view" style="margin-top:15px;margin-bottom:25px;text-align:center;">
+<li class="mui-table-view-cell mui-table-view-cellExt">
+<a id="exit" style="text-align: center;color: #FF3B30;">
+退出
+</a>
+</li>
+</ul>
